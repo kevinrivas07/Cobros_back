@@ -4,7 +4,12 @@ const cors = require("cors");
 const loanRoutes = require("../Routes/loanRoutes");
 
 const app = express();
-app.use(cors());
+
+// ⬇️ AUTORIZAMOS EL FRONT QUE LLAMA AL BACK
+app.use(cors({
+  origin: ['https://cobros-front-eta.vercel.app']
+}));
+
 app.use(express.json());
 app.use("/api", loanRoutes);
 
