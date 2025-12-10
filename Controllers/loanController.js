@@ -1,4 +1,4 @@
-const Loan = require('../Models/Loan');
+const Loan = require('../Models/loan');
 
 // Obtener todos los préstamos
 exports.getLoans = async (req, res) => {
