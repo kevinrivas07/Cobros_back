@@ -14,14 +14,20 @@ exports.getLoans = async (req, res) => {
 // Agregar un nuevo préstamo
 exports.addLoan = async (req, res) => {
   try {
-    const nuevoPrestamo = new Loan(req.body);
+    // Evitar que llegue un _id desde el frontend
+    const data = { ...req.body };
+    delete data._id;
+
+    const nuevoPrestamo = new Loan(data);
     await nuevoPrestamo.save();
+
     res.status(201).json(nuevoPrestamo);
   } catch (error) {
     console.error('Error al agregar préstamo:', error);
     res.status(500).json({ error: 'Error al agregar préstamo' });
   }
 };
+
 
 // Agregar un pago a un préstamo
 exports.addPago = async (req, res) => {
