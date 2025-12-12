@@ -6,5 +6,6 @@ router.get('/loans', controller.getLoans);
 router.post('/loans', controller.addLoan);
 router.post('/loans/:id/payments', controller.addPago);
 router.patch('/loans/:id/terminar', controller.markAsTerminado);
+router.delete('/loans/:id', controller.deleteLoan);
 
 module.exports = router;

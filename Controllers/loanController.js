@@ -70,3 +70,24 @@ exports.markAsTerminado = async (req, res) => {
     res.status(500).json({ error: 'Error al actualizar préstamo' });
   }
 };
+
+
+// Eliminar un préstamo
+exports.deleteLoan = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const deleted = await Loan.findByIdAndDelete(id);
+
+    if (!deleted) {
+      return res.status(404).json({ error: "Préstamo no encontrado" });
+    }
+
+    res.json({ message: "Préstamo eliminado correctamente" });
+
+  } catch (error) {
+    console.error("Error al eliminar préstamo:", error);
+    res.status(500).json({ error: "Error al eliminar préstamo" });
+  }
+};
+

@@ -9,19 +9,20 @@ let mongoConnected = false;
 
 module.exports = async (req, res) => {
   try {
-    
+    // Inicializar app solo una vez
     if (!app) {
       app = express();
 
       app.use(cors({
-        origin: '*'
+        origin: "https://cobros-front-eta.vercel.app",
+        methods: ["GET", "POST", "PUT", "DELETE","PATCH"],
       }));
 
       app.use(express.json());
       app.use("/api", loanRoutes);
     }
 
-    
+    // Conectar solo una vez
     if (!mongoConnected) {
       await mongoose.connect(process.env.MONGO_URI);
       mongoConnected = true;
