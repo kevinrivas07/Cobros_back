@@ -14,6 +14,7 @@ const allowedOrigins = [
   "https://cobros-front-eta.vercel.app/" // Tu URL de Vercel
 ];
 
+
 app.use(cors({
   origin: function (origin, callback) {
     // Permitir peticiones sin origin (como herramientas de testeo)
