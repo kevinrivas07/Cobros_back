@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3000;
 // Configuración de CORS dinámica
 const allowedOrigins = [
   "http://localhost:5173", 
-  "https://cobros-front-roan.vercel.app" // Tu URL de Vercel
+  "https://cobros-front-eta.vercel.app/" // Tu URL de Vercel
 ];
 
 app.use(cors({
